@@ -1,0 +1,5 @@
+﻿  Building 'KMDFJoystick' with toolset 'WindowsKernelModeDriver10.0' and the 'Desktop' target platform.
+  KMDFJoystick.c
+  KMDF Joystick.vcxproj -> C:\Users\Administrator\Documents\Driver\Joystick\x64\Debug\KMDFJoystick.sys
+  Inf2Cat task was skipped as there were no inf files to process
+  

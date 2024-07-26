@@ -1,0 +1,73 @@
+;
+; KMDFJoystick.inf
+;
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = HIDClass ; TODO: specify appropriate Class
+ClassGuid   = {745A17A0-74D3-11D0-B6FE-00A0C90F57DA}; TODO: specify appropriate ClassGuid
+Provider    = %ManufacturerName%
+CatalogFile = KMDFJoystick.cat
+DriverVer   = 06/28/2024 16.0.40.760; TODO: set DriverVer in stampinf property pages
+PnpLockdown = 1
+
+[DestinationDirs]
+DefaultDestDir = 13
+HID_CopyFiles = 13
+[SourceDisksNames]
+1 = %DiskName%,,,""
+
+[SourceDisksFiles]
+KMDFJoystick.sys = 1,,
+
+;*****************************************
+; Install Section
+;*****************************************
+[Standard.NTx86]
+%KMDFJoystick.DeviceDesc% = KMDFJoystick_Device.NT,HID\VID_0079&PID_0006\7&1D90090D&0&0000; 替换为你的设备ID
+
+[Manufacturer]
+%ManufacturerName% = Standard,NT$ARCH$.10.0...16299 ; %13% support introduced in build 16299
+
+[Standard.NT$ARCH$.10.0...16299]
+%KMDFJoystick.DeviceDesc% = KMDFJoystick_Device, Root\KMDFJoystick ; TODO: edit hw-id
+
+
+[KMDFJoystick_Device.NT]
+CopyFiles = HID_CopyFiles
+
+[HID_CopyFiles]
+KMDFJoystick.sys
+
+[ModelsSection.NTamd64]
+%DeviceDescription% = KMDFJoystick_Device.NT, HID\VID_0079&PID_0006
+
+
+;-------------- Service installation
+[KMDFJoystick_Device.NT.Services]
+AddService = KMDFJoystick,%SPSVCINST_ASSOCSERVICE%, KMDFJoystick_Service_Inst
+
+; -------------- KMDFJoystick driver install sections
+[KMDFJoystick_Service_Inst]
+DisplayName    = %KMDFJoystick.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %13%\KMDFJoystick.sys
+
+[KMDFJoystick_Device.NT.Wdf]
+KmdfService = KMDFJoystick, KMDFJoystick_wdfsect
+
+[KMDFJoystick_wdfsect]
+KmdfLibraryVersion = $KMDFVERSION$
+
+[Strings]
+SPSVCINST_ASSOCSERVICE = 0x00000002
+ManufacturerName = "Qizhiwoniu" ;TODO: Replace with your manufacturer name
+DiskName = "KMDFJoystick Installation Disk"
+KMDFJoystick.DeviceDesc = "My HID-compliant Game Controller"
+KMDFJoystick = "Joystick Device"
+DeviceDescription = "设备描述"
+KMDFJoystick.SVCDESC="KMDF Joystick"
+Company="Qizhiwoniu"
+Device="YuPeng"

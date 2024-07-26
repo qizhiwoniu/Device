@@ -1,0 +1,20 @@
+﻿  Building 'Virtual Gamepad' with toolset 'WindowsKernelModeDriver10.0' and the 'Universal' target platform.
+  Stamping x64\Debug\VirtualGamepad.inf
+  Stamping [Version] section with DriverVer=07/06/2024,15.21.7.728
+  Device.c
+  Driver.c
+  Queue.c
+  正在生成代码...
+  Virtual Gamepad.vcxproj -> C:\Users\Administrator\Documents\Driver\Virtual Gamepad\x64\Debug\VirtualGamepad.sys
+  Driver is 'Universal'.
+  ........................
+  Signability test complete.
+  
+  Errors:
+  None
+  
+  Warnings:
+  None
+  
+  Catalog generation complete.
+  C:\Users\Administrator\Documents\Driver\Virtual Gamepad\x64\Debug\Virtual Gamepad\virtualgamepad.cat

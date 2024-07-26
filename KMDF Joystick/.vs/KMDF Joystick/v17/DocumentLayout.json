@@ -1,0 +1,53 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Administrator\\Documents\\Driver\\KMDF Joystick\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{3CB2C944-A880-4F52-8EED-110616D8848A}|KMDF Joystick.vcxproj|C:\\Users\\Administrator\\Documents\\Driver\\KMDF Joystick\\KMDFJoystick.inf||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{3CB2C944-A880-4F52-8EED-110616D8848A}|KMDF Joystick.vcxproj|solutionrelative:KMDFJoystick.inf||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3CB2C944-A880-4F52-8EED-110616D8848A}|KMDF Joystick.vcxproj|C:\\Users\\Administrator\\Documents\\Driver\\KMDF Joystick\\Driver.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{3CB2C944-A880-4F52-8EED-110616D8848A}|KMDF Joystick.vcxproj|solutionrelative:Driver.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Driver.c",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Documents\\Driver\\KMDF Joystick\\Driver.c",
+              "RelativeDocumentMoniker": "Driver.c",
+              "ToolTip": "C:\\Users\\Administrator\\Documents\\Driver\\KMDF Joystick\\Driver.c",
+              "RelativeToolTip": "Driver.c",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAAkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2024-06-29T07:38:54.903Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "KMDFJoystick.inf",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Documents\\Driver\\KMDF Joystick\\KMDFJoystick.inf",
+              "RelativeDocumentMoniker": "KMDFJoystick.inf",
+              "ToolTip": "C:\\Users\\Administrator\\Documents\\Driver\\KMDF Joystick\\KMDFJoystick.inf",
+              "RelativeToolTip": "KMDFJoystick.inf",
+              "ViewState": "AQIAABsAAAAAAAAAAAAAAEMAAAA7AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002933|",
+              "WhenOpened": "2024-06-29T07:34:43.628Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+makecert -r -pe -n "CN=YuPeng" -ss My -sr LocalMachine -sky exchange -sv YuPeng.pvk YuPeng.cer
+
+pvk2pfx -pvk YuPeng.pvk -spc YuPeng.cer -pfx YuPeng.pfx -po password
+
+signtool sign /v /s "My" /n "YuPeng" /t http://timestamp.digicert.com /fd sha256 "KMDFDriverJoystick.sys"
+signtool sign /v /f "YuPeng.pfx" /p password /t http://timestamp.digicert.com /fd sha256 "kmdfdriverjoystick.cat"
+
+cat文件生成："C:\Program Files (x86)\Windows Kits\10\bin\10.0.26100.0\x86\Inf2Cat.exe" /driver:. /os:10_X64

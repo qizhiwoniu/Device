@@ -1,0 +1,80 @@
+;
+; VirtualGamepad.inf
+;
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = System ; TODO: specify appropriate Class
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318} ; TODO: specify appropriate ClassGuid
+Provider    = %ManufacturerName%
+CatalogFile = VirtualGamepad.cat
+DriverVer   = 05/07/2024,1.0.0.0; TODO: set DriverVer in stampinf property pages
+PnpLockdown = 1
+
+[DestinationDirs]
+DefaultDestDir = 12
+VirtualGamepad_Device_CoInstaller_CopyFiles = 11
+[SourceDisksNames]
+1 = %DiskName%,,,""
+
+[SourceDisksFiles]
+VirtualGamepad.sys  = 1,,
+ViGEmBus.sys = 1,,
+WdfCoInstaller$KMDFCOINSTALLERVERSION$.dll = 1
+;*****************************************
+; Install Section
+;*****************************************
+
+[Manufacturer]
+%ManufacturerName%=Standard,NTamd64,NTx86,NTARM64
+
+[Standard.NTamd64]
+%VirtualGamepad.DeviceDesc%=VirtualGamepad_Device, Nefarius\VirtualGamepad\Gen1
+%joystick%    = VirtualGamepad_Device, root\VID_1234&PID_0FFB&REV_0222
+[Standard.NTx86]
+%VirtualGamepad.DeviceDesc%=VirtualGamepad_Device, Nefarius\VirtualGamepad\Gen1
+%joystick%    = VirtualGamepad_Device, root\VID_1234&PID_0FFB&REV_0222
+[Standard.NTARM64]
+%VirtualGamepad.DeviceDesc%=VirtualGamepad_Device, Nefarius\VirtualGamepad\Gen1
+%joystick%    = VirtualGamepad_Device, root\VID_1234&PID_0FFB&REV_0222
+[VirtualGamepad_Device.NT]
+CopyFiles = File_Copy
+
+[File_Copy]
+VirtualGamepad.sys
+
+;-------------- Service installation
+[VirtualGamepad_Device.NT.Services]
+AddService = VirtualGamepad,%SPSVCINST_ASSOCSERVICE%, VirtualGamepad_Service_Inst
+
+; -------------- VirtualGamepad driver install sections
+[VirtualGamepad_Service_Inst]
+DisplayName    = %VirtualGamepad.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 1               ; SERVICE_DEMAND_START
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\VirtualGamepad.sys
+
+[VirtualGamepad_Device.NT.CoInstallers]
+AddReg=VirtualGamepad_Device_CoInstaller_AddReg
+CopyFiles=VirtualGamepad_Device_CoInstaller_CopyFiles
+
+[VirtualGamepad_Device_CoInstaller_AddReg]
+HKR,,CoInstallers32,0x00010000, "WdfCoInstaller$KMDFCOINSTALLERVERSION$.dll,WdfCoInstaller"
+
+[VirtualGamepad_Device_CoInstaller_CopyFiles]
+WdfCoInstaller$KMDFCOINSTALLERVERSION$.dll
+
+[VirtualGamepad_Device.NT.Wdf]
+KmdfService = VirtualGamepad, VirtualGamepad_wdfsect
+
+[VirtualGamepad_wdfsect]
+KmdfLibraryVersion = $KMDFVERSION$
+
+[Strings]
+SPSVCINST_ASSOCSERVICE = 0x00000002
+ManufacturerName = "Qizhiwoniu" ;TODO: Replace with your manufacturer name
+Joystick	   = "USB 手柄"
+DiskName = "VirtualGamepad Installation Disk"
+VirtualGamepad.DeviceDesc = "虚拟手柄总线"
+VirtualGamepad.SVCDESC = "VirtualGamepad Service"

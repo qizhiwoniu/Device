@@ -1,0 +1,13 @@
+#include <windows.h>
+#include <ntverp.h>
+
+#undef	VER_PRODUCTVERSION_STR
+
+#define VER_FILETYPE                VFT_DRV
+#define VER_FILESUBTYPE             VFT2_DRV_SYSTEM
+#define VER_FILEDESCRIPTION_STR     "Driver for KMDF-Joystick"
+#define VER_INTERNALNAME_STR        "KMDFJoystick.SYS"
+#define VER_ORIGINALFILENAME_STR    "KMDFJoystick.SYS"
+#define VER_PRODUCTVERSION_STR		LVER_PRODUCTVERSION_STR " (" "Joystick" ")"
+
+#include "common.ver"
